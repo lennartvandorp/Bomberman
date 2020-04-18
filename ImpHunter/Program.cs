@@ -14,7 +14,7 @@ namespace ImpHunter
         [STAThread]
         static void Main()
         {
-            using (var game = new ImpHunter())
+            using (var game = new Bomberman())
                 game.Run();
         }
     }

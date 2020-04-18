@@ -7,10 +7,11 @@ namespace ImpHunter
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class ImpHunter : GameEnvironment
+    public class Bomberman : GameEnvironment
     {
-        public ImpHunter()
+        public Bomberman()
         {
+            LoadContent();
             Content.RootDirectory = "Content";
         }
 
@@ -25,8 +26,8 @@ namespace ImpHunter
             ApplyResolutionSettings();
 
             // TODO: use this.Content to load your game content here
-
+            GameStateManager.AddGameState("Play", new GameStates.Playingstate());
+            GameStateManager.SwitchTo("Play");
         }
-        
     }
 }
