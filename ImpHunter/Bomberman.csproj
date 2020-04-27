@@ -59,6 +59,7 @@
     <Compile Include="GameManagement\SpriteSheet.cs" />
     <Compile Include="GameManagement\TextGameObject.cs" />
     <Compile Include="GameObjects\Floor.cs" />
+    <Compile Include="GameObjects\Player.cs" />
     <Compile Include="GameObjects\Tiles.cs" />
     <Compile Include="Bomberman.cs" />
     <Compile Include="GameStates\Playingstate.cs" />
@@ -75,6 +76,10 @@
   <ItemGroup>
     <Content Include="Content\spr_background.png" />
     <Content Include="Content\spr_floor.png" />
+    <Content Include="Content\spr_new_floor.png" />
+    <Content Include="Content\spr_player.png" />
+    <Content Include="Content\spr_wall.png" />
+    <Content Include="Content\spr_wood_floor.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>

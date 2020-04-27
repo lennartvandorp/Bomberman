@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 
 public class GameObjectGrid : GameObject
 {
@@ -17,6 +18,7 @@ public class GameObjectGrid : GameObject
                 grid[x, y] = null;
             }
         }
+
     }
 
     public void Add(GameObject obj, int x, int y)
