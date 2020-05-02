@@ -10,8 +10,10 @@ namespace ImpHunter
     /// </summary>
     public class Bomberman : GameEnvironment
     {
-        public int rows = 10;
-        public int columns = 10;
+        public int rows = 11;
+        public int columns = 11;
+        public GameStates.Playingstate thePlayingstate;
+
         public Bomberman()
         {
             Content.RootDirectory = "Content";
@@ -24,11 +26,13 @@ namespace ImpHunter
         protected override void LoadContent()
         {
             base.LoadContent();
-            Screen = new Point(800, 800);
+            Screen = new Point(880, 880);
             ApplyResolutionSettings();
 
             // TODO: use this.Content to load your game content here
-            GameStateManager.AddGameState("Play", new GameStates.Playingstate(rows,columns));
+            thePlayingstate = new GameStates.Playingstate(rows, columns);
+
+            GameStateManager.AddGameState("Play", thePlayingstate);
             GameStateManager.SwitchTo("Play");
         }
         public static float Distance(Vector2 point1, Vector2 point2)

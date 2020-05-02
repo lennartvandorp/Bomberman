@@ -6,25 +6,44 @@ using System.Threading.Tasks;
 
 namespace ImpHunter.GameObjects
 {
-    class Tiles : GameObjectGrid
+    public class Tiles : GameObjectGrid
     {
         private string[] sprites;
-        private int sprite, gridMaker; //ints used to select where to build wall and floor tiles
+        private int sprite;
+        private bool isWall;
+        private int[] gridMaker = {
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};//ints used to select where to build wall and floor tiles
         Random random = new Random();
         public Tiles(int rows, int columns) : base(rows, columns)
         {
+            Console.WriteLine("gridmaker length     " + gridMaker.Length + "  " + columns * rows);
             sprites = new string[2];
-            sprites[0] = "spr_wall";
-            sprites[1] = "spr_wood_floor";
+            sprites[0] = "spr_wood_floor";
+            sprites[1] = "spr_wall";
+            //gridMaker = new int[100];
 
-            for (int x = 0; x < 10; x++) {
-                for (int y = 0; y < 10; y++)
+            //gridMaker = { 0, 0};
+
+            for (int x = 0; x < columns; x++) {
+                for (int y = 0; y < rows; y++)
                 {
-                    sprite = random.Next(0, 2);
-                    Console.WriteLine(sprite);
-                    this.Add(new Floor(sprites[sprite]), x, y);
+                    sprite = rows * y + x;
+                    if (gridMaker[sprite] == 1) {
+                        isWall = true;
+                    }
+                    this.Add(new Floor(sprites[gridMaker[sprite]], isWall), x, y);
                     cellHeight = Bomberman.Screen.Y / columns;
-                    cellWidth = Bomberman.Screen.Y / rows;
+                    cellWidth = Bomberman.Screen.X / rows;
                 }
             }            
         }
