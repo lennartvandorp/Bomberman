@@ -22,6 +22,7 @@ namespace ImpHunter.GameObjects
 
             position = thePlayer.Position + RelativeLocation;
             base.Update(gameTime);
+
         }
     }
 }

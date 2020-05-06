@@ -11,7 +11,8 @@ namespace ImpHunter.GameObjects
     {
         public string assetName;
         public bool isWall;
-        public Floor(string assetName,bool isWall) : base(assetName) {
+        public bool isHit;
+        public Floor(string assetName, bool isWall) : base(assetName) {
             this.assetName = assetName;
 
             this.isWall = isWall;
@@ -20,12 +21,9 @@ namespace ImpHunter.GameObjects
 
         public override void Update(GameTime gameTime)
         {
-            collision();
             base.Update(gameTime);
         }
-        private void collision() {
 
-        }
 
     }
 }

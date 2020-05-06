@@ -30,17 +30,17 @@ namespace ImpHunter.GameObjects
             sprites = new string[2];
             sprites[0] = "spr_wood_floor";
             sprites[1] = "spr_wall";
-            //gridMaker = new int[100];
 
-            //gridMaker = { 0, 0};
 
             for (int x = 0; x < columns; x++) {
                 for (int y = 0; y < rows; y++)
                 {
                     sprite = rows * y + x;
-                    if (gridMaker[sprite] == 1) {
+                    if (gridMaker[sprite] == 1)
+                    {
                         isWall = true;
                     }
+                    else isWall = false;
                     this.Add(new Floor(sprites[gridMaker[sprite]], isWall), x, y);
                     cellHeight = Bomberman.Screen.Y / columns;
                     cellWidth = Bomberman.Screen.X / rows;

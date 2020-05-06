@@ -13,6 +13,9 @@ namespace ImpHunter
         public int rows = 11;
         public int columns = 11;
         public GameStates.Playingstate thePlayingstate;
+        public int player1Score, player2Score;
+        public SpriteFont font;
+
 
         public Bomberman()
         {
@@ -26,6 +29,7 @@ namespace ImpHunter
         protected override void LoadContent()
         {
             base.LoadContent();
+            font = Content.Load<SpriteFont>("font");//hier laadt ik de font in
             Screen = new Point(880, 880);
             ApplyResolutionSettings();
 
@@ -33,7 +37,8 @@ namespace ImpHunter
             thePlayingstate = new GameStates.Playingstate(rows, columns);
 
             GameStateManager.AddGameState("Play", thePlayingstate);
-            GameStateManager.SwitchTo("Play");
+            GameStateManager.AddGameState("Begin", new GameStates.Beginstate());
+            GameStateManager.SwitchTo("Begin");
         }
         public static float Distance(Vector2 point1, Vector2 point2)
         {

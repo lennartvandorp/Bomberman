@@ -41,6 +41,8 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GameObjects\BeginText.cs" />
+    <Compile Include="GameObjects\Dynamite.cs" />
     <Compile Include="GameManagement\AnimatedGameObject.cs" />
     <Compile Include="GameManagement\Animation.cs" />
     <Compile Include="GameManagement\AssetManager.cs" />
@@ -60,9 +62,11 @@
     <Compile Include="GameManagement\TextGameObject.cs" />
     <Compile Include="GameObjects\Floor.cs" />
     <Compile Include="GameObjects\Player.cs" />
+    <Compile Include="GameObjects\Score.cs" />
     <Compile Include="GameObjects\Sensor.cs" />
     <Compile Include="GameObjects\Tiles.cs" />
     <Compile Include="Bomberman.cs" />
+    <Compile Include="GameStates\Beginstate.cs" />
     <Compile Include="GameStates\Playingstate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,6 +81,7 @@
   <ItemGroup>
     <Content Include="Content\spr_background.png" />
     <Content Include="Content\spr_empty.png" />
+    <Content Include="Content\spr_explosion.png" />
     <Content Include="Content\spr_floor.png" />
     <Content Include="Content\spr_new_floor.png" />
     <Content Include="Content\spr_player.png" />
