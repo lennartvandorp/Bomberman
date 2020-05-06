@@ -31,7 +31,7 @@ namespace ImpHunter.GameObjects
             sprites[0] = "spr_wood_floor";
             sprites[1] = "spr_wall";
 
-
+            //adds all tiles to the grid
             for (int x = 0; x < columns; x++) {
                 for (int y = 0; y < rows; y++)
                 {

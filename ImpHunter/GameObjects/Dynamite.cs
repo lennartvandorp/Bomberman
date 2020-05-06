@@ -16,7 +16,7 @@ namespace ImpHunter.GameObjects
         public Dynamite(string assetName, int direction, Vector2 position): base(assetName) {
             speed = 20;
             this.position = position;
-            switch (direction) {
+            switch (direction) {//used to move the dynamite in the direction the player is moving
                 case 0:
                     velocity.X = speed;
                     break;
@@ -35,7 +35,7 @@ namespace ImpHunter.GameObjects
         {
             position += velocity;
             explosionTimer++;
-            if (explosionTimer > 10) {
+            if (explosionTimer == 10) {//switches to other sprite after 10 ticks
                 sprite = new SpriteSheet("spr_explosion", 0);
                 isExplosion = true;
             }

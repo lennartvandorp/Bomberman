@@ -76,7 +76,7 @@ namespace ImpHunter.GameObjects
         {
             if (moving)
             {
-                switch (direction)
+                switch (direction)//moves the player
                 {
                     case 0:
                         position.X += speed;
@@ -95,7 +95,7 @@ namespace ImpHunter.GameObjects
                 }
             }
 
-            if (inputHelper.IsKeyDown(right) && canMove[2])
+            if (inputHelper.IsKeyDown(right) && canMove[2])//checks if there isn't a wall next to it and moves the player. 
             {
                 inputTimer++;
                 if (inputTimer == 1)
@@ -108,7 +108,8 @@ namespace ImpHunter.GameObjects
                     moving = true;
                 }
             }
-            else if (inputHelper.IsKeyDown(left) && canMove[0]) {
+            else if (inputHelper.IsKeyDown(left) && canMove[0])
+            {//checks if there isn't a wall next to it and moves the player. 
                 inputTimer++;
                 if (inputTimer == 1)
                 {
@@ -119,7 +120,7 @@ namespace ImpHunter.GameObjects
                     moving = true;
                 }
             }
-            else if (inputHelper.IsKeyDown(down) && canMove[3])
+            else if (inputHelper.IsKeyDown(down) && canMove[3])//checks if there isn't a wall next to it and moves the player. 
             {
                 inputTimer++;
                 if (inputTimer == 1)
@@ -133,7 +134,7 @@ namespace ImpHunter.GameObjects
                     moving = true;
                 }
             }
-            else if (inputHelper.IsKeyDown(up) && canMove[1])
+            else if (inputHelper.IsKeyDown(up) && canMove[1])//checks if there isn't a wall next to it and moves the player. 
             {
                 inputTimer++;
                 if (inputTimer == 1)
@@ -148,7 +149,7 @@ namespace ImpHunter.GameObjects
             }
             else inputTimer = 0;
 
-            if (Bomberman.Distance(position, lastPosition) >= Bomberman.Screen.X / rows) {//stops the player when it reached the next place
+            if (Bomberman.Distance(position, lastPosition) >= Bomberman.Screen.X / rows) {//stops the player when it reached the next tile
                 moving = false;
                 inputTimer = 0;
             }
@@ -189,7 +190,7 @@ namespace ImpHunter.GameObjects
 
         public override void Update(GameTime gameTime)
         {
-            foreach(Sensor s in sensors) {
+            foreach(Sensor s in sensors) {//updates the sensors in the player
                 s.Update(gameTime);
             }
             base.Update(gameTime);
