@@ -85,6 +85,7 @@
     <Content Include="Content\spr_floor.png" />
     <Content Include="Content\spr_new_floor.png" />
     <Content Include="Content\spr_player.png" />
+    <Content Include="Content\spr_theOtherPlayer.png" />
     <Content Include="Content\spr_tnt.png" />
     <Content Include="Content\spr_wall.png" />
     <Content Include="Content\spr_wood_floor.png" />

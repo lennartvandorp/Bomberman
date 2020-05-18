@@ -14,7 +14,11 @@ namespace ImpHunter.GameStates
         public GameObjects.Tiles theTiles;
         public List<GameObject> theDynamiteList;
         private GameObject newDynamite;
+        private GameObject toBeRemoved;
+        private bool removeDynamite;
         public int points;
+        private bool firstTimeSetup = true;//checks if the game has been restarted or started for the first time
+
         Score theScore;
 
         
@@ -26,7 +30,6 @@ namespace ImpHunter.GameStates
             theTiles = new GameObjects.Tiles(rows, columns);
             theScore = new Score();
 
-            this.Add(theScore);
 
             Reset(rows, columns);
 
@@ -35,13 +38,21 @@ namespace ImpHunter.GameStates
             this.rows = rows;
             this.columns = columns;
 
+            if (!firstTimeSetup)
+            {
+                this.Remove(thePlayer);
+                this.Remove(theOtherPlayer);
+            }
             thePlayer = new GameObjects.Player("spr_player", rows, columns, true);
             theOtherPlayer = new GameObjects.Player("spr_player", rows, columns, false);
             theDynamiteList = new List<GameObject>();
-
+            
             this.Add(theTiles);
             this.Add(thePlayer);
             this.Add(theOtherPlayer);
+            this.Add(theScore);
+
+            firstTimeSetup = false;
         }
 
         public override void Update(GameTime gameTime)
@@ -94,7 +105,19 @@ namespace ImpHunter.GameStates
                         Reset(rows, columns);
                     }
                 }
+                if (d.Position.X > Bomberman.Screen.X || d.Position.Y > Bomberman.Screen.Y
+                    || d.Position.X < -100 || d.Position.Y < -100)//sets dynamite up to be removed 
+                {
+                    toBeRemoved = d;
+                    removeDynamite = true;
+                }
             }
+            if (removeDynamite) {
+                theDynamiteList.Remove(toBeRemoved);
+                this.Remove(toBeRemoved);
+                removeDynamite = false;
+            }
+            
 
             base.Update(gameTime);
 

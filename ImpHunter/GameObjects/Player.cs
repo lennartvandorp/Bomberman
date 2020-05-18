@@ -46,6 +46,7 @@ namespace ImpHunter.GameObjects
                 shoot = Keys.M;
                 position.X = Bomberman.Screen.X - (columns / Bomberman.Screen.X);
                 position.Y = Bomberman.Screen.Y - (rows / Bomberman.Screen.Y);
+                sprite = new SpriteSheet("spr_theOtherPlayer", 0);
 
             }
 
